@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: payment-network
+  datasource:
+    url: jdbc:postgresql://localhost:5433/payment-network
+    username: dbuser1
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  liquibase:
+    change-log: db/changelog/db.changelog-root.yml
+
+server:
+  port: 8081

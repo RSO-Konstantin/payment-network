@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: LSJDV002-73-bankDropColumns
+      author: kbojchevski
+      changes:
+        - dropColumn:
+            tableName: bank
+            columns:
+              - column:
+                  name: payment_network
+  - changeSet:
+      id: LSJDV002-73_bankAddingColumns
+      author: kbojchevski
+      changes:
+        - addColumn:
+            tableName: bank
+            columns:
+              - column:
+                  name: bank_status
+                  type: varchar(255)
+  - changeSet:
+      id: LSJDV002-73_bankData
+      author: kbojchevski
+      loadData:
+        tableName: bank
+        file: db/data/bank.csv

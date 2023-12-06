@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: LSJDV002-73-customerDropColumns
+      author: kbojchevski
+      changes:
+        - dropColumn:
+            tableName: customer
+            columns:
+              - column:
+                  name: payment_network
+  - changeSet:
+      id: LSJDV002-69_customerData
+      author: kbojchevski
+      loadData:
+        tableName: customer
+        file: db/data/customer.csv

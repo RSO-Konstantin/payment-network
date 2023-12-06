@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  app:
+    image: payment-network
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5433/payment-network
+      - SPRING_DATASOURCE_USERNAME=dbuser
+      - SPRING_DATASOURCE_PASSWORD=postgres
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: payment-network
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5433"
